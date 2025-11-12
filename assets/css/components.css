@@ -1,0 +1,525 @@
+/* ========================================
+   広告エリア
+======================================== */
+.ads-area {
+    text-align: center;
+    margin: 40px 0;
+    padding: 30px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border: 2px dashed #e0e0e0;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ads-area::before {
+    content: "広告";
+    display: block;
+    font-size: 12px;
+    color: #999999;
+    margin-bottom: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ========================================
+   記事一覧レイアウト
+======================================== */
+.post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.post-list-item {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(230, 57, 70, 0.1);
+}
+
+.post-list-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    border-color: rgba(230, 57, 70, 0.2);
+}
+
+.post-list-item .post-thumbnail-list {
+    width: 280px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.post-list-item .post-thumbnail-list::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(230, 57, 70, 0.1), transparent);
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.post-list-item:hover .post-thumbnail-list::before {
+    background: linear-gradient(45deg, rgba(230, 57, 70, 0.2), transparent);
+}
+
+.post-list-item .post-thumbnail-list img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.post-list-item:hover .post-thumbnail-list img {
+    transform: scale(1.05);
+}
+
+.post-list-item .post-content-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.post-list-item .entry-title {
+    font-size: 22px;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.post-list-item .entry-meta {
+    background: transparent;
+    padding: 0;
+    border: none;
+    margin-bottom: 15px;
+    font-size: 13px;
+}
+
+.post-list-item .entry-summary {
+    padding: 0;
+    flex: 1;
+    color: #666;
+    line-height: 1.6;
+}
+
+.post-list-item .entry-summary p:last-child {
+    margin-bottom: 0;
+}
+
+/* ========================================
+   関連記事
+======================================== */
+.related-posts {
+    margin: 50px 0;
+    padding: 40px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(230, 57, 70, 0.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
+.related-posts h3 {
+    margin: 0 0 30px 0;
+    font-size: 24px;
+    color: #2c2c2c;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.related-posts h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #e63946, #c62828);
+    border-radius: 2px;
+}
+
+.related-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.related-post {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(230, 57, 70, 0.1);
+}
+
+.related-post:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    border-color: rgba(230, 57, 70, 0.2);
+}
+
+.related-post-thumbnail {
+    position: relative;
+    overflow: hidden;
+    height: 160px;
+}
+
+.related-post-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.related-post:hover .related-post-thumbnail img {
+    transform: scale(1.1);
+}
+
+.related-post-content {
+    padding: 20px;
+}
+
+.related-post-title {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.related-post-title a {
+    color: #2c2c2c;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.related-post-title a:hover {
+    color: #e63946;
+}
+
+.related-post-meta {
+    font-size: 13px;
+    color: #999999;
+    font-weight: 500;
+}
+
+/* ========================================
+   前後記事ナビゲーション
+======================================== */
+.post-navigation {
+    margin: 50px 0;
+    padding: 30px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    border: 1px solid rgba(230, 57, 70, 0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.post-navigation a {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #333333;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    max-width: 45%;
+    border: 2px solid transparent;
+}
+
+.post-navigation a:hover {
+    color: #e63946;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    border-color: rgba(230, 57, 70, 0.2);
+}
+
+.post-navigation a .nav-label {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.post-navigation a .nav-title {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.nav-previous { text-align: left; }
+.nav-next { text-align: right; }
+
+/* ========================================
+   コメントエリア
+======================================== */
+.comments-area {
+    margin: 50px 0;
+    padding: 40px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(230, 57, 70, 0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.comments-title {
+    margin: 0 0 40px 0;
+    font-size: 26px;
+    color: #2c2c2c;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.comments-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #e63946, #c62828);
+    border-radius: 2px;
+}
+
+.comment-list { list-style: none; margin: 0; padding: 0; }
+
+.comment-list .comment {
+    margin: 0 0 35px 0;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border: 1px solid rgba(230, 57, 70, 0.1);
+    transition: all 0.3s ease;
+}
+
+.comment-list .comment:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.comment-author img {
+    float: left;
+    margin: 0 20px 20px 0;
+    border-radius: 50%;
+    border: 3px solid #f0f0f0;
+    transition: border-color 0.3s ease;
+}
+
+.comment:hover .comment-author img {
+    border-color: rgba(230, 57, 70, 0.3);
+}
+
+.comment-author .fn {
+    font-weight: 700;
+    color: #e63946;
+    font-size: 16px;
+}
+
+.comment-meta {
+    font-size: 13px;
+    color: #999999;
+    margin: 8px 0 20px 0;
+    font-weight: 500;
+}
+
+.comment-meta a {
+    color: #999999;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.comment-meta a:hover {
+    color: #e63946;
+}
+
+.comment-content p {
+    margin: 0 0 18px 0;
+    line-height: 1.7;
+    color: #555;
+}
+
+.reply a {
+    font-size: 13px;
+    color: #e63946;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 6px 12px;
+    background: rgba(230, 57, 70, 0.1);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.reply a:hover {
+    background: #e63946;
+    color: white;
+}
+
+/* コメントフォーム */
+.comment-form {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border: 1px solid rgba(230, 57, 70, 0.1);
+}
+
+.comment-form label {
+    display: block;
+    margin: 0 0 8px 0;
+    font-weight: 600;
+    color: #333333;
+    font-size: 15px;
+}
+
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form input[type="url"],
+.comment-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: #fafafa;
+}
+
+.comment-form input:focus,
+.comment-form textarea:focus {
+    outline: none;
+    border-color: #e63946;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+    transform: scale(1.01);
+}
+
+.comment-form textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+.comment-form input[type="submit"] {
+    background: linear-gradient(135deg, #e63946 0%, #c62828 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.comment-form input[type="submit"]:hover {
+    background: linear-gradient(135deg, #c62828 0%, #a51e2a 100%);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(230, 57, 70, 0.4);
+}
+
+/* ========================================
+   ページネーション
+======================================== */
+.pagination {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.pagination ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    gap: 8px;
+}
+
+.pagination a,
+.pagination span {
+    display: block;
+    padding: 12px 18px;
+    background: white;
+    border: 2px solid #e0e0e0;
+    text-decoration: none;
+    color: #333333;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.pagination a:hover {
+    background: #e63946;
+    color: white;
+    border-color: #e63946;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+}
+
+.pagination .current {
+    background: linear-gradient(135deg, #e63946 0%, #c62828 100%);
+    color: white;
+    border-color: #e63946;
+    box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+}
+
+/* ========================================
+   トップに戻るボタン
+======================================== */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, #e63946 0%, #c62828 100%);
+    color: white;
+    text-align: center;
+    line-height: 55px;
+    border-radius: 50%;
+    text-decoration: none;
+    display: none;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.back-to-top:hover {
+    background: linear-gradient(135deg, #c62828 0%, #a51e2a 100%);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(230, 57, 70, 0.6);
+}
+
+.back-to-top.show {
+    display: block;
+    animation: pulse 2s infinite;
+}

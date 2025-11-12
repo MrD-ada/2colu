@@ -1,0 +1,220 @@
+/* ========================================
+   レスポンシブデザイン
+======================================== */
+@media screen and (max-width: 1024px) {
+    .main-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .sidebar-right {
+        width: 100%;
+    }
+    
+    .post-header,
+    .entry-content,
+    .entry-summary {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    
+    .entry-title {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    body {
+        font-size: 15px;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .site-header .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .site-title {
+        font-size: 24px;
+    }
+    
+    .main-navigation ul {
+        flex-direction: column;
+    }
+    
+    .main-navigation a {
+        padding: 15px 20px;
+    }
+    
+    .main-wrapper {
+        margin: 25px 0;
+        gap: 25px;
+    }
+    
+    .post {
+        margin-bottom: 35px;
+        border-radius: 8px;
+    }
+    
+    .post-header,
+    .entry-content,
+    .entry-summary {
+        padding: 20px;
+    }
+    
+    .entry-title {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .entry-content {
+        font-size: 16px;
+    }
+    
+    .entry-content h2 {
+        font-size: 22px;
+        margin: 35px 0 20px 0;
+        padding: 15px 0 15px 20px;
+    }
+    
+    .entry-content h3 {
+        font-size: 18px;
+        margin: 30px 0 15px 0;
+        padding: 12px 15px;
+    }
+    
+    .entry-content ul li,
+    .entry-content ol li {
+        padding: 10px 15px;
+        margin-bottom: 12px;
+    }
+    
+    .entry-content table th,
+    .entry-content table td {
+        padding: 12px 10px;
+        font-size: 14px;
+    }
+    
+    .entry-content blockquote {
+        padding: 20px 25px 20px 40px;
+        margin: 25px 0;
+    }
+    
+    .share-buttons {
+        padding: 20px 15px;
+    }
+    
+    .share-buttons ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .share-buttons a {
+        padding: 10px 15px;
+        min-width: 100px;
+        font-size: 13px;
+    }
+    
+    .sidebar-right .widget,
+    .sidebar-right .wp-block-group {
+        margin-bottom: 25px;
+        border-radius: 8px;
+    }
+    
+    .sidebar-right .widget-title,
+    .sidebar-right .wp-block-heading {
+        padding: 15px 20px;
+        font-size: 16px;
+    }
+    
+    .sidebar-right .widget-content {
+        padding: 20px;
+    }
+    
+    .post-list-item {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .post-list-item .post-thumbnail-list {
+        width: 100%;
+    }
+    
+    .post-list-item .post-thumbnail-list img {
+        height: 200px;
+    }
+    
+    .post-navigation {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .post-navigation a {
+        max-width: 100%;
+    }
+    
+    .related-posts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-widgets {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 16px;
+    }
+}
+
+/* ========================================
+   プリント用スタイル
+======================================== */
+@media print {
+    .sidebar-right,
+    .share-buttons,
+    .comments-area,
+    .ads-area,
+    .back-to-top,
+    .main-navigation {
+        display: none !important;
+    }
+    
+    .main-content {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    .container {
+        max-width: none;
+        padding: 0;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+    
+    .entry-title {
+        font-size: 18pt;
+        color: #000;
+    }
+    
+    .entry-content h2 {
+        font-size: 16pt;
+        color: #000;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+}
