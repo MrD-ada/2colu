@@ -61,7 +61,7 @@
                 <?php
                 // 関連記事
                 $related_posts = new WP_Query(array(
-                    'posts_per_page' => 4,
+                    'posts_per_page' => 6,
                     'post__not_in' => array(get_the_ID()),
                     'orderby' => 'rand',
                     'category__in' => wp_get_post_categories(get_the_ID()),
@@ -99,14 +99,16 @@
                 ?>
                     <nav class="post-navigation">
                         <?php if ($prev_post) : ?>
-                            <div class="nav-previous">
-                                <a href="<?php echo get_permalink($prev_post->ID); ?>" rel="prev">&laquo; <?php echo get_the_title($prev_post->ID); ?></a>
-                            </div>
+                            <a href="<?php echo get_permalink($prev_post->ID); ?>" class="nav-previous">
+                                <span class="nav-label">前の記事</span>
+                                <span class="nav-title"><?php echo get_the_title($prev_post->ID); ?></span>
+                            </a>
                         <?php endif; ?>
                         <?php if ($next_post) : ?>
-                            <div class="nav-next">
-                                <a href="<?php echo get_permalink($next_post->ID); ?>" rel="next"><?php echo get_the_title($next_post->ID); ?> &raquo;</a>
-                            </div>
+                            <a href="<?php echo get_permalink($next_post->ID); ?>" class="nav-next">
+                                <span class="nav-label">次の記事</span>
+                                <span class="nav-title"><?php echo get_the_title($next_post->ID); ?></span>
+                            </a>
                         <?php endif; ?>
                     </nav>
                 <?php endif; ?>
